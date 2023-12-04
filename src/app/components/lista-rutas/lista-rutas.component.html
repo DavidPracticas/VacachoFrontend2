@@ -1,0 +1,48 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">Lista de Rutas</span>
+          <table class="table table-striped-columns mt-3">
+            <thead>
+              <tr>
+                <th scope="col">Destino</th>
+                <th scope="col">Camion</th>
+                <th scope="col">Hora de Salida</th>
+                <th scope="col">Voletos Restantes</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody *ngFor='let ruta of listRutas' >
+              <td>{{ruta.destino}}</td>
+              <td>{{ruta.camion}}</td>
+              <td>{{ruta.salida}}</td>
+              <td>{{ruta.boletos}}</td>
+              <td>
+                <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+              </td>
+
+
+              <!--<tr *ngFor="let camion of listCamiones">
+                <td>Guadalajara</td>
+                <td>TransBrujas #340</td>
+                <td>28/12/2023 8:20</td>
+                <td>20</td>
+                <td>{{camion.destino}}</td>
+                <td>{{camion.camion}}</td>
+                <td>{{camion.salida}}</td>
+                <td>{{camion.boletos}}</td>
+                <td>
+                  <button button type="button" class="btn btn-outline-success">Comprar Boleto</button>
+                  <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+                </td>
+              </tr> -->
+            </tbody>
+          </table>
+          <!--h5 *ngIf="listCamiones.length == 0">No hay camiones disponibles</h5-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

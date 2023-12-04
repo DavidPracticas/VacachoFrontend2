@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-lg-8 offset-lg-2">
+      <div class="card">
+        <div class="card-body text-center">
+          <span class="titulo">Lista de Usuarios</span>
+          <button type="button" class="btn btn-outline-warning float-end" [routerLink]="['/registro']">Agregar Nuevo</button>
+          <table *ngIf="listUsuarios.length > 0" class="table mt-3">
+            <thead>
+              <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Email</th>
+                <th scope="col">Password</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody class="table-group-divider" >
+              <tr *ngFor="let usuario of listUsuarios">
+                <td *ngIf="usuario.permisoAdm == true" >{{ usuario.nombre }}</td>
+                <td *ngIf="usuario.permisoAdm == true" > {{ usuario.apellido}} </td>
+                <td *ngIf="usuario.permisoAdm == true" >{{ usuario.email }}</td>
+                <td *ngIf="usuario.permisoAdm == true" >{{ usuario.password }}</td>
+                <td *ngIf="usuario.permisoAdm == true" >
+                  <button (click)="eliminarUsuario(usuario._id)" class="fa-solid fa-trash text-danger"></button>
+                  <button [routerLink]="['/registro-editar']" class="fa-solid fa-gear text-primary"></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <h5 *ngIf="listUsuarios.length == 0">No hay usuarios administradores</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
